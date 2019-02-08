@@ -1,0 +1,145 @@
+body{
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+.skip{
+	height:100vh;
+}
+.skip h1{
+	position:absolute;
+	color:#ddd;
+	font-size:3em;
+	font-family:sans-serif;
+	letter-spacing:0.1em;
+	margin:0;
+	padding:0;
+	top:5%;
+	left:80%;
+	cursor:pointer;
+	animation:skip 2s linear forwards;
+}
+@keyframes skip
+{
+	0%{
+		opacity:0;
+	}
+	100%{
+	opacity:1;
+	}
+}
+.main_loding{
+	width:100%;
+	height:100%;
+	position:absolute;
+	 background:black;
+}
+.main_loding section{
+	height:100vh;
+}
+.main_loding section:before{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:linear-gradient(to right,#f00,#fa8072,#f99766,#f745b3,#f7aa3d,#0ff,#ff0,#0ff,#d207f7);
+	mix-blend-mode:color;
+	pointer-events:none;
+}
+@supports not (mix-blend-mode: multiply) {
+  .main_loding section:before {
+  position:unset;
+   background:black;
+  }
+}
+.main_loding video{
+	width:80%;
+	margin-left:5%;
+	margin-top:2%;
+	object-fit:cover;
+}
+
+.loding_h1{
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	width: 100%;
+	text-align:center;
+	color:#ddd;
+	font-size:4.8em;
+	font-family:sans-serif;
+	letter-spacing:0.1em;
+}
+.loding_h1 span{
+	opacity:0;
+	display:inline-block;
+	animation:logo 1s linear forwards;
+}
+@keyframes logo
+{
+	0%
+	{
+		opacity:0;
+		transform:rotateY(90deg);
+		filter:blur(10px);
+	}
+	100%
+	{
+		opacity:1;
+		transform:rotateY(0deg);
+		filter:blur(0);
+	}
+}
+.loding_h1 span:nth-child(1)
+{
+	animation-delay:0.6s;
+}
+.loding_h1 span:nth-child(2)
+{
+	animation-delay:0.9s;
+}
+.loding_h1 span:nth-child(3)
+{
+	animation-delay:1.1s;
+}
+.loding_h1 span:nth-child(4)
+{
+	animation-delay:1.3s;
+}
+.loding_h1 span:nth-child(5)
+{
+	animation-delay:1.9s;
+}
+.loding_h1 span:nth-child(6)
+{
+	animation-delay:2.3s;
+}
+.loding_h1 span:nth-child(7)
+{
+	animation-delay:2.7s;
+}
+.loding_h1 span:nth-child(8)
+{
+	animation-delay:3.0s;
+}
+.loding_h1 span:nth-child(9)
+{
+	animation-delay:3.3s;
+}
+.loding_h1 span:nth-child(10)
+{
+	animation-delay:3.5s;
+}
+.loding_h1 span:nth-child(11)
+{
+	animation-delay:3.8s;
+}
+.loding_h1 span:nth-child(12)
+{
+	animation-delay:4.1s;
+}
+

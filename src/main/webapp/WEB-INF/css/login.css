@@ -1,0 +1,128 @@
+.header{
+	position:unset;
+}
+.nav-menu{
+	padding-top:3%;
+}
+body{
+	margin:0;
+	padding:0;
+	background: url("/resources/bg/gabriel-santiago-19756-unsplash.jpg");
+	background-size:cover;
+
+}
+.title{
+	text-align:center;
+	padding:50px 0 20px;
+}
+.title h1
+{
+	letter-spacing:2;
+	margin:0;
+	padding:0;
+	color:white;
+	text-transform:uppercase;
+	font-size:36px;
+}
+.login_div{
+	 width: 40vw;
+    height: 56vh;
+	background:#fff;
+	margin:0 auto;
+	border:2px solid #fff;
+	box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+.left{
+	float:left;
+	width:50%;
+	height: 56vh;
+	background:url("/resources/bg/warren-wong-323107-unsplash.jpg");
+	background-size:cover;
+	    z-index: 10;
+}
+.right
+{
+	float:right;
+	width:50%;
+	height: 56vh;
+	box-sizing:border-box;
+}
+.formBox{
+	width:100%;
+	padding: 80px 40px;
+	box-sizing:border-box;
+	height: 56vh;
+	background:#fff;
+}
+p{
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	color:salmon;
+}
+input{
+	margin-bottom:20px;
+	border:none;
+	border-bottom:2px solid salmon;
+	outline:none;
+	height:40px;
+	width:100%;
+}
+
+input:focus{
+	border-bottom:2px solid #262626;
+}
+.formBox button{
+	width:100%;
+	border:none;
+	outline:none;
+	height:40px;
+	color:white;
+	background:#262626;
+	cursor:pointer;
+	margin-bottom:20px;
+	font-size:14px;
+}
+.formBox button:hover{
+	background:salmon;
+}
+.formBox form{
+	margin-bottom:0;
+}
+.login_div a{
+	color:#262626;
+font-size: 0.7vw;
+	font-weight:bold;
+	font-style:unset;
+}
+
+.help_div{
+	display:none;
+	width:20%;
+	padding: 80px 40px;
+	box-sizing:border-box;
+	height:500px;
+	position:absolute;
+}
+.help_div button{
+	width:100%;
+	border:none;
+	outline:none;
+	height:40px;
+	color:white;
+	background:#262626;
+	cursor:pointer;
+	margin-bottom:20px;
+	font-size:14px;
+}
+.help_form{
+	padding-top: 20;
+}
+.help_div button:hover{
+	background:salmon;
+}
+h4{
+	font-family: KBIZHanmaumMyungjo;
+    color: grey;
+    margin-top: 0;
+}

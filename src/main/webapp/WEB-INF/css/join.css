@@ -1,0 +1,101 @@
+.header{
+	position:unset;
+}
+.nav-menu{
+	padding-top:3%;
+}
+body{
+	margin:0;
+	padding:0;
+	background: url("/resources/bg/rawpixel-594859-unsplash.jpg");
+	background-size:cover;
+
+}
+.info{
+	margin-top:15;
+	
+}
+.title{
+	text-align:center;
+	padding:50px 0 20px;
+}
+.title h1
+{
+	letter-spacing:2;
+	margin:0;
+	padding:0;
+	color:#262626;
+	text-transform:uppercase;
+	font-size:36px;
+}
+.join_div{
+	 width: 40vw;
+    height: 56vh;
+	background:#fff;
+	margin:0 auto;
+	border:2px solid #fff;
+	box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+.left{
+	float:left;
+	width:50%;
+	 height: 56vh;
+	background:url("/resources/bg/pineapple-supply-co-86427-unsplash.jpg");
+	background-size:cover;
+}
+.right
+{
+	float:right;
+	    width: 50%;
+    height: 40vh;
+	box-sizing:border-box;
+}
+.formBox{
+	width:100%;
+	padding: 40px 40px;
+	box-sizing:border-box;
+	height:40vh;
+	background:#fff;
+}
+.formBox p{
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	color:salmon;
+	font-size:.9vw;
+}
+.formBox input{
+	margin-bottom:2vh;
+	border:none;
+	border-bottom:2px solid salmon;
+	outline:none;
+	height:4vh;
+	width:100%;
+}
+
+.formBox input:focus{
+	border-bottom:2px solid #262626;
+}
+.formBox button{
+	width:100%;
+	border:none;
+	outline:none;
+	height:5vh;
+	color:white;
+	background:#262626;
+	cursor:pointer;
+	margin-bottom:20px;
+	font-size: .8vw;
+}
+.formBox button:hover{
+	background:salmon;
+}
+.formBox form{
+	margin-bottom:0;
+}
+.formBox a{
+	color:#262626;
+	font-size: .8vw;
+	font-weight:bold;
+	font-style:unset;
+}

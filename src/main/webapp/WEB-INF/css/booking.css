@@ -1,0 +1,17 @@
+body{
+	background:whitesmoke;
+}
+.booking_div{
+	width:30%;
+	height:30%;
+	background:white;
+	box-shadow:1px 1px 5px grey;
+	margin-top: 10%;
+    position: absolute;
+    margin-left: 35%;
+    text-align:center;
+}
+.account{
+	color: royalblue;
+} 
+

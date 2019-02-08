@@ -1,0 +1,18 @@
+body{
+	background:url("/resources/bg/hall-1609571_1920.jpg");
+	background-size:cover;
+	overflow:hidden;
+}
+.error_text{
+height: 30vh;
+    font-size: 6vh;
+    padding: 5vh;
+    position: absolute;
+    margin-top: 40vh;
+    width: 100%;
+    font-family: 'NanumSquareRound';
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}

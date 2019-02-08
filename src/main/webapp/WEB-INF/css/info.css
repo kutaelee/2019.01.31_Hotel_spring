@@ -1,0 +1,27 @@
+.info_div{
+	position:absolute;
+	text-align:center;
+	margin-top:6%;
+	width:35vw;
+	height:80vh;
+	margin-left:51%;
+	font-size: 0.9vw;
+}
+.info_div h1{
+	    font-size: 2vw;
+}
+.info_img{
+	margin-top:6%;
+	position:absolute;
+	width:30vw;
+	height:80vh;
+	overflow:hidden;
+	margin-left:20%;
+}
+.info_img img{
+	width:100%;
+
+}
+
+
+

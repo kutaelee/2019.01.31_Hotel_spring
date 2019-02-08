@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.room.RoomMapper">
+	<insert id="roomset" parameterType="RoomVO">
+		   insert into room(room_type,room_date) values(#{room_type},#{room_date})
+	</insert>
+	<select id="roomcheck" parameterType="RoomVO" resultType="RoomVO">
+		select * from room where room_date=#{room_date} and room_type=#{room_type}
+	</select>
+	<select id="stayroomcheck" parameterType="RoomVO" resultType="RoomVO">
+		select room_rem from room where room_seq=${room_seq}
+	</select>
+	<update id="roomupdate" parameterType="RoomVO">
+		update room set room_rem=${room_rem} where room_seq=${room_seq}
+	</update>
+	<select id="remainingrooms" parameterType="String" resultType="RoomVO">
+		select * from room where room_type=#{room_type} order by room_date
+	</select>
+	<update id="roomchange" parameterType="RoomVO">
+		update room set room_date=#{room_date},room_rem=50 where room_seq=${room_seq}
+	</update>
+</mapper>

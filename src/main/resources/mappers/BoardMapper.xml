@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotel.board.BoardMapper">
+<select id='boardSelectList' resultType="BoardVO" parameterType="int">
+	 select seq,title,writer,regDate,cnt,security from board order by seq desc limit #{i},10;
+</select>
+<select id='boardSelectRead' resultType="BoardVO">
+	 select * from board where seq=${seq}
+</select>
+<update id="updateHitCnt" parameterType="BoardVO">
+	update board set cnt=ifnull(cnt,0)+1 where seq=${seq}
+</update>
+<select id="boardCount" resultType="int">
+	select count(*) from board
+</select>
+<insert id='boardInsert' parameterType="BoardVO">
+	insert into board(title,content,writer,cnt,security,filepath) values(#{title},#{content},#{writer},0,#{security},#{filepath})
+</insert>
+<update id='boardUpdate' parameterType="BoardVO">
+	update board set title=#{title},content=#{content} where seq=${seq}
+</update>
+<delete id='boardDelete' parameterType="BoardVO">
+	delete from board where seq=${seq};
+	delete from comment where parent_seq=${seq}
+</delete>
+<select id="securitycheck" parameterType="BoardVO" resultType="String">
+	select writer from board where seq=${seq} and writer=#{writer}
+</select>
+</mapper>

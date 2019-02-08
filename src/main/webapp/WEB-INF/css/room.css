@@ -1,0 +1,317 @@
+.roombox{
+	position: absolute;
+    margin-left: 10;
+	margin-top:10%;
+	display:inline-block;
+	width:15%;
+	height:51%;
+	background:#2c4162;
+	color:white;
+	border:1px solid ;
+	z-index:100;
+	text-align:center;
+	border-radius:10px;
+	box-shadow:1px 1px 5px grey;
+}
+.roombox input{
+	width: 90%;
+    height: 30;
+    border-radius: 5px;
+    text-align: center;
+}
+.room_select{
+	color:black;
+	margin-left:5%;
+	background:white;
+	width: 90%;
+    height: 30;
+    border-radius: 5px;
+    text-align: center;
+ border:1px solid white;
+    cursor:pointer;
+	padding-top:3px;
+    
+}
+.room_dropbox{
+	display:none;
+	margin-top:1px;
+}
+.room_dropbox div{
+	color:black;
+	margin-left:5%;
+	position: absolute;
+	cursor:pointer;
+    text-align:center;
+	background:white;
+	width: 90%;
+    height: 30;
+     border:1px solid white;
+}
+.room_dropbox div:hover{
+	background:#C6C6C6;
+}
+.room2{
+	margin-top:30;
+}
+.room3{
+	margin-top:60;
+}
+.person_select{
+	color:black;
+	margin-left:5%;
+	background:white;
+	width: 90%;
+    height: 30;
+    border-radius: 5px;
+    text-align: center;
+    border:1px solid white;
+    cursor:pointer;
+padding-top:3px;
+    
+}
+.person_dropbox{
+	display:none;
+	margin-top:1px;
+}
+.person_dropbox div{
+	color:black;
+	margin-left:5%;
+	position: absolute;
+	cursor:pointer;
+    text-align:center;
+	background:white;
+	width: 90%;
+    height: 30;
+     border:1px solid white;
+}
+.person_dropbox div:hover{
+	background:#A2A2A2;
+}
+.person2{
+	margin-top:30;
+}
+.person3{
+	margin-top:60;
+}
+.person4{
+	margin-top:90;
+}
+.toggle_person{
+	display:none;
+}
+.blur_box_left{
+	width:200px;
+	height:40%;
+	background:rgba(255,255,255,.4);
+	position:absolute;
+}
+.blur_box_right{
+	margin-left:600;
+	width:200px;
+	height:40%;
+	background:rgba(255,255,255,.4);
+	position:absolute;
+}
+.slidebox{
+	margin-top:10%;
+	margin-left:15%;
+	overflow:hidden;
+	display:inline-block;
+	width:800px;
+	height:40%;
+	border:1px solid #2c4162;
+	overflow:hidden;
+	background:whitesmoke;
+}
+.slide_btn{
+	position:absolute;
+	z-index:10;
+	margin-top:10%;
+	margin-left:20%;
+	width:45%;
+	height:40%;
+}
+.slide_btn button{
+	margin-top: 20%;
+	background:unset;
+	color:white;
+	background:black;
+	font-size:20;
+	border:none;
+	opacity:0.8;
+	padding-top: 5px;
+}
+.slide_left{
+	margin-left:1%;
+}
+.slide_right{
+  margin-left: 80%;
+}
+.slidebox img{
+	display:inline-block;
+	width:400;
+	height:100%;
+}
+.imgbox{
+	width:9999px;
+}
+.slider{
+	margin-top:10;
+	width:830;
+	margin-left:15%;
+	height:10%;
+	overflow:hidden;
+}
+.slider_imgbox{
+	width:9999px;
+}
+.slider img{
+	cursor:pointer;
+	margin-right:1;
+	width:80;
+	height:90%;
+	margin-top:2;
+}
+.active_img{
+	border:2px solid salmon;
+}
+.btn_box{
+	position: absolute;
+    margin-top: 7.5%;
+    margin-left: 15%;
+}
+.btn_box button{
+	padding:13px;
+	box-shadow:none;
+	border: 1px solid black;
+    border-bottom: none;
+    border-radius:0;
+    border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background:#2b3d59;
+}
+.room_submit{
+	width:80%;
+	margin-top:-7.5%;
+}
+.room_submit:hover{
+	background:#F54F29;
+	color:white;
+	border:1px solid #F54F29;
+	transition:0.3s;
+}
+.carcurlator{
+text-align: center;
+    width: 15vw;
+    position: absolute;
+    display: inline-block;
+    height: 40vh;
+    margin-left: 21vw;
+    margin-top: 15%;
+ }
+ .carcurlator h1{
+
+ 	margin-bottom:30;
+ }
+ .carcur_btn{
+  position: absolute;
+     margin-left: 17%;
+    margin-top: 22%;
+ }
+ .carcur_btn:hover{
+ 	background:#F54F29;
+	color:white;
+	border:1px solid #F54F29;
+	transition:0.3s;
+ }
+ .checkout_room{
+ margin-left: 15%;
+ }
+ .remaining_div{
+ margin-top:7.5%;
+ width: 18%;
+ height:80%;
+     position: absolute;
+  box-shadow:1px 1px 5px grey;
+  text-align:center;
+      margin-left: 39%;
+      background:white;
+      z-index:100;
+     display:none;
+ } 
+ .remaining_div h3{
+     position: absolute;
+    margin-left: 90%;
+    margin-top: 0%;
+    cursor:pointer;
+    font-size:1em;
+ }
+ .remaining_table{
+ margin-top:9%;
+     color:currentColor;
+    text-align: center;
+    font-size: .8vw;
+	border-top: 1px solid dodgerblue;
+ 	border-collapse: collapse;
+ 	width:100%;
+ 	font-family: NanumSquareRound;
+ 	font-weight: 700;
+ }
+
+ .remaining_table th{
+ border-bottom: 1px solid dodgerblue;
+ 	border-collapse: collapse;
+ }
+.remaining_table td{
+ border-bottom:1px solid dodgerblue;
+ 	border-collapse: collapse;
+
+}
+.carcurlator h1{
+	font-size:1.5vw;
+}
+.carcurlator p{
+	font-size:.8vw;
+}
+@media ( max-width: 1280px ) {
+	body{
+	overflow-x:hidden;
+	}
+  .btn_box{
+  margin-top: 6.2%;
+    margin-left: 1%;
+   }
+   .slidebox{
+       margin-left: 1%;
+       height:50%;
+   }
+   .blur_box_left{
+    height:50%;
+   }
+   .blur_box_right{
+    height:50%;
+   }
+   .slider{
+       margin-left: 1%;
+   }
+   .roombox{
+       height: 65%;
+    }
+   .checkout_room {
+   	    margin-left: 1%;
+   }
+   .slide_btn{
+       margin-left: 5%;
+       width: 60%;
+   }
+   .slide_btn button{
+   margin-top:17%;
+   }
+	.remaining_div{
+		height:95%;
+		margin-top:5.5%;
+	}
+	.roombox{
+	    height: 82%;
+	    }
+}

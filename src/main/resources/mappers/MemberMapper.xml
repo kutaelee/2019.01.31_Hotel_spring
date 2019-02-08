@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotel.member.MemberMapper">
+<select id="memberlogin" resultType="MemberVO">
+	select * from member where id=#{id}
+</select>
+<select id="idcheck" resultType="MemberVO">
+	select id from member where id=#{id}
+</select>
+<insert id="memberjoin" parameterType="MemberVO">
+	insert into member(id,password,email) values(#{id},#{password},#{email})
+</insert>
+<select id="emailcheck" resultType="MemberVO">
+	select * from member where email=#{email}
+</select>
+</mapper>

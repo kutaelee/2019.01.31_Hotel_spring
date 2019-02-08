@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.book.BookMapper">
+	<insert id="bookinsert" parameterType="BookVO">
+		insert into book(book_type,book_person,book_checkin,book_checkout,book_pay,stay) values(#{book_type},#{book_person},#{book_checkin},#{book_checkout},#{book_pay},#{stay});
+	</insert>
+	<select id="mybookselect" parameterType="BookVO" resultType="BookVO">
+		select * from book where book_person=#{id}
+	</select>
+	<delete id="mybookdelete" parameterType="String">
+		delete from book where book_seq=#{seq}
+	</delete>
+</mapper>

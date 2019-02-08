@@ -1,0 +1,22 @@
+.logout_div{
+	height:100vh;
+	text-align:center;
+}
+.logout_div h1{
+	margin:0;
+	padding:0;
+	width: 100%;
+	position:absolute;
+}
+.logout_text1{
+	top:30%;
+}
+.logout_text2{
+	top:40%;
+}
+.logout_div button{
+	top:50%;
+	margin-left:-3%;
+	position:absolute;
+	padding:1.3%;
+}
