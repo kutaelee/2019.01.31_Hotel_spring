@@ -57,7 +57,8 @@ public class BoardController {
 	@Transactional
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
 	public @ResponseBody List<BoardVO> submit(MultipartHttpServletRequest req) throws IllegalStateException, IOException
- {	 
+ {	 		
+	
 		List<MultipartFile> mf = req.getFiles("file[]");
 		String id=req.getParameter("writer");
 	
@@ -66,11 +67,10 @@ public class BoardController {
 		}else {
 			bv.setFilepath(null);
 		}
-		//인코딩
-		String title=new String(req.getParameter("title").getBytes("8859_1"),"utf-8");
-		String content=new String(req.getParameter("content").getBytes("8859_1"),"utf-8");
-		String writer=new String(req.getParameter("writer").getBytes("8859_1"),"utf-8");
 
+		String title=req.getParameter("title");
+		String content=req.getParameter("content");
+		String writer=req.getParameter("writer");
 		bv.setTitle(title);
 		bv.setContent(content);
 		bv.setWriter(writer);

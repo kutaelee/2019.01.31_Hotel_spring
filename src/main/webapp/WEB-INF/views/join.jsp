@@ -139,13 +139,13 @@ $(document).ready(function(){
 			success:function(result){
 				if(result){
 					alert_call(true,"가입완료!");
-					setTimeOut(function(){
+					setTimeout(function(){
 						window.location.href="/";
 					},500)
 					
 				}else{
 					alert_call(false,"가입 도중 문제가 발생했습니다!")
-						setTimeOut(function(){
+						setTimeout(function(){
 							location.reload();
 					},500)			
 				}
