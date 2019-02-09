@@ -4,9 +4,10 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/board.css?ver=9" rel="stylesheet">
+<link href="${path}/css/board.css?ver=10" rel="stylesheet">
 </head>
 <script>
+
 var curpagenum="1"; //현재 페이지번호 변수
 var curseq="";
 var curdocument=null;
@@ -72,11 +73,19 @@ function readform_call(){
 					$('.read_info').append('<a>작성자 :'+result.writer+'</a>');
 					$('.read_info').append('<a>날짜 :'+result.regDate+'</a>');
 					$('.read_info').append('<a>조회수 :'+result.cnt+'</a>');
+					$('.nav-menu').css({'padding-top':'10%'});
+				
 					if(result.filepath){
 						cur_doc_path=result.filepath;
 						fileread(result.filepath);
 					}else{
 						cur_doc_path=null;
+					}
+					if($('body').prop('class')=='mobile'){
+						$('.board_info').hide();
+						$('.board_info2').hide();
+						$('.board_content').css({'position':'absolute'});	
+						$('.nav-menu').css({'padding-top':'30%'});
 					}
 					$('.read_content').append(result.content);
 					$.ajax({
@@ -87,7 +96,7 @@ function readform_call(){
 							$('.board_content').css({'margin-top':'5%'});
 							$('.tag').css({'margin-top':'7%'});
 							$('.header').css({'position':'fixed'});
-							$('.nav-menu').css({'padding-top':'10%'});
+							
 						
 								comment_list(result);				
 						}
@@ -214,6 +223,13 @@ $(document).ready(function(){
 	var j=10; //게시글 목록당 수 10씩 증가
 	var update_file_list = [];
 
+	/*mobile*/
+	if($('body').width()<450){
+		$('body').attr('class','mobile');
+		$('.tag').removeAttr('class').attr('class','tag_mobile');
+		$('.nav-menu').css({'padding-top':'padding-top: 18%'});
+		
+	}
 	//수정할 파일 리스트 푸쉬
 	$(document).on('click','.file_list button',function(){
 		$(this).parent().fadeOut('slow');
@@ -315,15 +331,33 @@ $(document).ready(function(){
 		$('.header').css({'position':'relative'});
 		$('.board_content').css({'margin-top':'0'});
 		$('.tag').css({'margin-top':'2%'});
-		$('.nav-menu').css({'padding-top':'5%'});
+	
 		$('.tag').css({'margin-left':'20%'});
+		if($('body').prop('class')=='mobile'){
+			$('.board_info').show();
+			$('.board_info2').show();
+			$('.board_content').css({'position':'relative'});
+			$('.nav-menu').css({'padding-top':'18%'});
+		}else{
+			$('.nav-menu').css({'padding-top':'5%'});
+			
+		}
+	
 	})
 	$(document).on('click','.back_span',function(){
 		$('.board_content').css({'margin-top':'0'});
 		$('.tag').css({'margin-top':'2%'});
 		$('.header').css({'position':'relative'});
-		$('.nav-menu').css({'padding-top':'5%'});
+	
 		$('.tag').css({'margin-left':'20%'});
+		if($('body').prop('class')=='mobile'){
+			$('.board_info').show();
+			$('.board_info2').show();
+			$('.board_content').css({'position':'relative'});
+			$('.nav-menu').css({'padding-top':'18%'});
+		}else{
+			$('.nav-menu').css({'padding-top':'5%'});
+		}
 		pageload(curpagenum);
 	})
 	
@@ -359,6 +393,10 @@ $(document).ready(function(){
 	/* 글쓰기 페이지 출력 */
 	$('.board_write_btn').click(function(){
 		if(sessionid!=null){
+			if($('body').prop('class')=='mobile'){
+				$('.board_info').hide();
+				$('.board_info2').hide();
+			}
 			writeform(false);
 		}else{
 			alert_call(false,"로그인 후 이용해주세요");
@@ -374,6 +412,11 @@ $(document).ready(function(){
 			data:{'sessionid':sessionid,'seq':curseq},
 			success:function(result){
 				if(result){
+					if($('body').prop('class')=='mobile')
+					{
+						$('.header').css({'position':'relative'});
+					}
+					
 					update_file_list=[];
 					writeform(true);
 				}else{
@@ -563,20 +606,7 @@ $(document).ready(function(){
 <body>
 <h1 class="tag">고객센터</h1>
 	
-	<div class="board_info" >
-			<h1 style="margin-bottom:0">전화 문의</h1>
-		<h1 style="color: tomato">. . . . . . . .</h1>
-			<h4>010-1234-****</h4>
-			<h4>평일 AM 9:00 ~ PM 6:00</h4>
-			<h4>공휴일 제외</h4>
-		</div>
-		<div class="board_info" style="margin-top:40vh;margin-left:84vw">
-			<h1 style="margin-bottom:0">게시판 문의</h1>
-		<h1 style="color: tomato">. . . . . . . .</h1>
-			<h4>24시간 연중무휴</h4>
-			<h4>최대한 빠른 시간내에 </h4>
-			<h4>답변 드리도록 노력하겠습니다.</h4>
-		</div>
+
 		<div class="board_content">
 
 		
@@ -584,6 +614,20 @@ $(document).ready(function(){
 		<div class="board_btn_div">
 		<span class="paging_span"></span>
 		<button class="board_write_btn">글쓰기</button>
+		</div>
+			<div class="board_info" >
+			<h1 style="margin-bottom:0">전화 문의</h1>
+		<h1 style="color: tomato">. . . . . . . .</h1>
+			<h4>010-1234-****</h4>
+			<h4>평일 AM 9:00 ~ PM 6:00</h4>
+			<h4>공휴일 제외</h4>
+		</div>
+		<div class="board_info2" >
+			<h1 style="margin-bottom:0">게시판 문의</h1>
+		<h1 style="color: tomato">. . . . . . . .</h1>
+			<h4>24시간 연중무휴</h4>
+			<h4>최대한 빠른 시간내에 </h4>
+			<h4>답변 드리도록 노력하겠습니다.</h4>
 		</div>
 </body>
 </html>

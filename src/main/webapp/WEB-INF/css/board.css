@@ -121,13 +121,26 @@ th, td {
 }
 .board_info{
 	position:absolute;
-	margin-top:13vh;
+	margin-top:-65vh;
 	margin-left:85vw;
 	text-align:center;
 }
+.board_info2{
+	position:absolute;
+margin-top:-40vh;
+margin-left:84vw;
+	text-align:center;
+}
+.board_info2 h1{
+		margin-top:0;
+	font-size:1.6vw;
+	}
 .board_info h1{
 	margin-top:0;
 	font-size:1.6vw;
+}
+.board_info2 h4{
+		font-size:.9vw;	
 }
 .board_info h4{
 	font-size:.9vw;
@@ -351,4 +364,129 @@ th, td {
 }
 .file_list p{
 	font-family: 'NanumSquareRound';
+}
+@media(max-width:450px){
+	.board_table{
+	    margin-left: 2.5%;
+	    margin-top: 8%;
+	    width:95%;
+	}	
+	.nav-menu{
+		padding-top:18%;
+	}
+	th,td{
+    font-size: 12px;
+    padding: 2px;
+	}
+	.tag_mobile{
+	 position: absolute;
+    color: salmon;
+    margin-bottom:0;
+	margin-left: 1px;
+	font-size: 15px;
+	    margin-left: 10;
+	}
+	.board_btn_div{
+		margin-top:5%;
+		margin-left: 17%;
+	}
+	.board_content{
+		position:relative;
+	}
+	.paging_span{
+	    width: 86%;
+	    margin-top: 0;
+    margin-left: 0;
+    position: relative;
+	}
+	.paging_span button{
+	    font-size: 10px;
+    padding: 5;
+	}
+	.board_write_btn{
+	     margin-top: -7%;
+	  font-size: 11px;
+	      margin-left: 80%;
+	}
+	.board_info{
+	 display: inline-block;
+    position: relative;
+      width: 33%;
+    margin-left: 10%;
+    margin-top: 5%;
+	}
+	.board_info2{
+    display: inline-block;
+    position: relative;
+       width: 33%;
+    margin-left: 10%;
+    margin-top: 5%;
+	}
+	.board_info h1{
+	font-size:15;
+	}
+	.board_info2 h1{
+	font-size:15;
+	}
+	.board_info h4{
+	    font-size: 12;
+	}
+	.board_info2 h4{
+	    font-size: 12;
+	}
+	.back_span{
+	    margin-top: 14%;
+    margin-left: 73%;
+	}
+	.read_table{
+	    width: 70%;
+	    margin-top: 28%;
+    margin-left: 15%;
+	}
+	.datgle_div{
+	    margin-left: 12.5%;
+	        width: 75%;
+	}
+	.datgle{
+	height: 46%;
+	}
+	.datgle_btn{
+	    padding: 7;
+    font-size: 12;
+	}
+	.comment_table{
+	    margin-left: 12.5%;
+    width: 75%;
+	}
+	.back_btn{
+	  margin-left: 71%;
+	}
+	button{
+	    padding: 7px;
+    font-size: 13px;
+	}
+	.read_btn_div{
+	margin-left: 37%;
+	}
+	.read_info a{
+	font-size: 12px;
+    margin-right: 9px;
+	}
+	.board_write_div{
+	    width: 70%;
+    height: 100%;
+        margin-left: 15%;
+    margin-top: 10%;
+	}
+	.file_list{
+	width: 90%;
+	    margin-left: 5%;
+    margin-top: 130%;
+	}
+	.read_table a{
+		font-size:3.5vw;
+	}
+	.read_title{
+	font-size:4.5vw;
+	}
 }

@@ -16,3 +16,11 @@ height: 30vh;
     font-weight: bold;
 
 }
+@media(max-width:450px){
+	
+	.error_text{
+	   width: 82%;
+	       margin-top: 35vh;
+	}
+	
+}

@@ -69,6 +69,15 @@ video{
 	position:absolute;
 	display:none;
 }
+.img-text1 p{
+margin-right: 20px
+}
+.img-text2 p{
+margin-left: 20px
+}
+.other_div p{
+margin-left: 20px
+}
 .main_div h4{
 	
 	font-size:1.5vw;
@@ -139,3 +148,80 @@ opacity:1;
     letter-spacing: 3px;
 }
 
+@media(max-width:450px){
+	.video_div{
+	    margin-top: 17%;    
+	    height: 50%;
+	}
+	.video_div video{
+		width:100%;
+	}
+	.info_div{
+	margin-top: 53%;
+	   height: 26vh;
+	}
+	.main_div{
+	    margin-top: 85%;
+	}
+	.main_div h4{
+		font-size:1em;
+	}
+	.main-img0{
+	  display: block;
+	}
+	.main-img1{
+	    display: block;
+       width: 50%;
+	}
+	.main-img2{
+	  display: block;
+	    width: 50%;
+	    margin-left:0;
+	}
+	.img-text1{
+		  display: block;
+		width: 40vw;
+		    height: 30vh;
+		    margin-left:4%;
+	}
+	.img-text2{
+		  display: block;
+		 margin-left: 54%;
+		width: 45vw;
+		height: 30vh;
+	}
+	.img-text1 p{
+	margin-right:0;
+	}
+	.img-text2 p{
+	 margin-left:0;
+	}
+	.other_div p{
+	 margin-left:0;
+	}
+	p{
+	 font-size: 18px;
+	}
+
+	.other_div{
+	  display: block;
+	   
+	}
+	.other_div h1{
+	font-size:3.5vw;
+	}
+	.other_menu{
+	  display: block;
+	}
+	.other_menu a{
+	    font-size: 3vw;
+    margin-left: 3%;
+    margin-top: 1%;
+	}
+	.info_div h4{
+		font-size:2.5vw;
+	}
+	.info_div h1{
+		font-size:3.5vw;
+	}
+}

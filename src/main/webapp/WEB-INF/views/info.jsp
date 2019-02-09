@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/info.css?ver=1" rel="stylesheet">
+<link href="${path}/css/info.css?ver=2" rel="stylesheet">
 <script>
 
 var i=1;

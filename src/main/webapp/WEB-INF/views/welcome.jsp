@@ -2,7 +2,8 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="${path}/css/welcome.css?ver=3" rel="stylesheet">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link href="${path}/css/welcome.css?ver=11" rel="stylesheet">
 </head>
 <script>
 function skip(){
@@ -31,7 +32,7 @@ $(document).ready(function(){
 			skip();
 		}
 	})
-})
+}) 
 
 </script>
 <body>
@@ -39,13 +40,13 @@ $(document).ready(function(){
 <section>
 <video src="${path}/file/smoke.mp4" autoplay muted></video>
 <h1 class="loding_h1">
-<span>W</span>
+<span>G</span>
+<span>Y</span>
+<span>U</span>
+<span>T</span>
+<span>A</span>
 <span>E</span>
-<span>L</span>
-<span>C</span>
-<span>O</span>
-<span>M</span>
-<span>E</span>
+<span> </span>
 <span>H</span>
 <span>O</span>
 <span>T</span>

@@ -23,5 +23,24 @@
 
 }
 
+@media(max-width:450px){
+	.info_img{
+	    width: 60vw;
+    	height: 80vh;
+        margin-top: 25%;
+        margin-left: 20%;
+	}
+	.info_img img{
+	    width: 250;
+		height:360;
+	}
+	.info_div{
+	width: 100%;
+	margin-top: 114%;
+	margin-left:0;
+    font-size: 2vw;
+    height: 57vh;
+	}
+}
 
 

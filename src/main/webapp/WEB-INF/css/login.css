@@ -126,3 +126,39 @@ h4{
     color: grey;
     margin-top: 0;
 }
+@media(max-width:450px){
+	.nav-body{
+	padding-top: 13%;
+	}
+	body{
+		background: url("/resources/bg/m_login_bg.jpg");
+		background-size: cover;
+	}
+	.login_div{
+	    width: 80%;
+    height: 40%;
+        margin: 7% auto;
+	}
+	.left{
+	    width: 50%;
+    height: 100%;
+	}
+	.formbox{
+	    padding: 40px 20px;
+	  height: 40%;
+	}
+	.login_div a{
+		font-size:11px;
+	}
+.help_div{
+	    width: 40%;
+    padding: 40 20px;
+	height:100%;	
+}
+input{
+	margin-bottom:5;
+}
+h4{
+	font-size:12px;
+}
+}

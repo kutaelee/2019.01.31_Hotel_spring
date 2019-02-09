@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/join.css?ver=7" rel="stylesheet">
+<link href="${path}/css/join.css?ver=12" rel="stylesheet">
 </head>
 <script>
 var id_check=false;
@@ -128,20 +128,7 @@ $(document).ready(function(){
 			$('.info').text("이메일 형식에 맞춰주세요!");
 		}
 	})
-	$('.formBox').mouseover(function(){
-		if(id_check&&pw_check&&pw2_check){
-			$('.join_btn').removeAttr("disabled");
-		}else{
-			$('.join_btn').attr("disabled","disabled");
-		}
-	})
-	$('body').click(function(){
-		if(id_check&&pw_check&&pw2_check&&email_check){
-			$('.join_btn').removeAttr("disabled");
-		}else{
-			$('.join_btn').attr("disabled","disabled");
-		}
-	})
+
 	$('.join_btn').click(function(){
 		if(id_check&&pw_check&&pw2_check&&email_check){
 		var data=$('#joinform').serialize();
@@ -168,14 +155,14 @@ $(document).ready(function(){
 		})
 		}else{
 			if(id_check==false){
-				$('.info').css({'color':'salmon'});
-				$('.info').text("입력하신 아이디에 문제가있습니다.");
+				
+				alert_call(false,"입력하신 아이디에 문제가있습니다.");
 			}else if(pw_check==false||pw_check2==false){
-				$('.info').css({'color':'salmon'});
-				$('.info').text("입력하신 비밀번호에 문제가있습니다.");
+			
+				alert_call(false,"입력하신 비밀번호에 문제가있습니다.");
 			}else{
-				$('.info').css({'color':'salmon'});
-				$('.info').text("입력하신 이메일에 문제가있습니다.");
+				
+				alert_call(false,"입력하신 이메일에 문제가있습니다.");
 			}
 		}
 	})
@@ -191,14 +178,14 @@ $(document).ready(function(){
 	<div class="formBox">
 	<form id="joinform">
 		<p>ID</p>
-		<input type="text" name="id" class="id" placeholder="사용하고 싶은 ID를 입력해주세요" maxlength="15">
+		<input type="text" name="id" class="id" placeholder="사용하고 싶은 ID" maxlength="15">
 		<p>E-mail</p>
-		<input type="email" name="email" class="email" placeholder="이메일을 입력해주세요 ID 찾기에 사용됩니다" maxlength="30">
+		<input type="email" name="email" class="email" placeholder="ID찾기에 이용됩니다!" maxlength="30">
 		<p>Password</p>
-		<input type="password" name="password" class="password" placeholder="사용하고 싶은 비밀번호를 입력해주세요" maxlength="15">
+		<input type="password" name="password" class="password" placeholder="사용하고 싶은 비밀번호" maxlength="15">
 		</form>
 		<p>Password Check</p>
-		<input type="password" class="password2" placeholder="비밀번호를 한번 더 입력해주세요" maxlength="15">
+		<input type="password" class="password2" placeholder="위 비밀번호 한번 더 입력" maxlength="15">
 
 		<button class="join_btn">회원가입</button>
 		<a href="/login">아이디가 이미 있으신가요?</a>

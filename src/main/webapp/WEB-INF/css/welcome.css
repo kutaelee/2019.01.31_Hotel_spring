@@ -143,3 +143,16 @@ body{
 	animation-delay:4.1s;
 }
 
+@media(max-width:450px){
+	.loding_h1{
+	    font-size: 1.5em;
+	}
+	.main_loding video{
+		    margin-top: 53%;
+		  width: 100%;
+	    margin-left:0;
+	}
+.skip h1{
+	font-size:1em;
+}
+}

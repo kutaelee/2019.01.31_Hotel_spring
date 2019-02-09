@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class NaviController {
+	   @RequestMapping("**/favicon.ico")
+	    public String favicon() {
+	        return "forward:/resources/fav.ico";
+	    }
+
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(Model model,HttpServletRequest req) {
 		HttpSession session=req.getSession(false);

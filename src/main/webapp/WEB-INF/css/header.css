@@ -2,6 +2,7 @@
 @font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'KBIZHanmaumMyungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KBIZHanmaumMyungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
 body{
 	margin:0;
 }
@@ -199,3 +200,59 @@ background-color: tomato;
 
     margin-top: 9px;
 }
+
+@media(max-width:450px){
+	.logo{
+	    font-size: 4vw;
+	        width: 23%;
+	   }
+	   #menu-toggle{
+	   	margin-top: 3vh;
+	   }
+	#menu-toggle div{
+		width:30;
+	
+		height: 5px;
+	}
+	.change .one{
+	    -webkit-transform: rotate(-45deg) translate(-3px, 3px);
+	  }
+	.change .three {
+    transform: rotate(45deg) translate(-3px, -5px);
+	  }
+	  .nav-menu{
+	  padding-left:0;
+	     padding-top: 30%;
+      font-size: 6vw;
+        text-align: center;
+	  }
+	  .nav-menu li{
+	      margin-bottom: 9%;
+	  }
+	  .nav-menu a{
+	      width: 30%;
+   		 margin-left: 35%;
+	}
+	  
+	  .nav-menu h4{
+	          width: 100%;
+	  }
+	  .nav-menu h4{
+	  margin-left: 0;
+	  }
+	  .alert{
+	  width: 50%;
+	    height: 20%;
+        margin-top: 30%;
+	      margin-left: 25%;
+	  }
+	  .alert_close{
+	      width: 15%;
+	      margin-top: 3%;
+    margin-left: 30%;
+	  }
+	  .alert h1{
+	      font-size: 15px;
+	  }
+}
+

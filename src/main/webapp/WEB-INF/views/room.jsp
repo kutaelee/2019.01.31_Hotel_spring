@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/room.css?ver=9" rel="stylesheet"> 
+<link href="${path}/css/room.css?ver=10" rel="stylesheet"> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
@@ -144,8 +144,10 @@ $(document).ready(function(){
 				margin=0;
 				slidesw=false;
 			}else{
-				alert("첫번째 사진입니다.");
-				curimgnum=0;
+				alert_call(true,"마지막 이미지로 갑니다. ");
+				curimgnum=listcnt-1;
+				margin=-50*(listcnt-1)+25;
+				$('.imgbox').stop().animate({'margin-left':margin+'%'},700);
 				$('.active_img').removeAttr('class');
 				$('#'+curimgnum).attr('class','active_img');
 			}
@@ -155,31 +157,36 @@ $(document).ready(function(){
 
 	//슬라이드 오른쪽버튼 클릭 함수
 	$('.slide_right').click(function(){
-		
+		slidesw=false;
 		
 		if(curimgnum<listcnt-1){
-			if(curimgnum==0||curimgnum==listcnt-1)
+		
+			if(curimgnum==0||curimgnum==listcnt-1){
 				margin+=25;
+			}
+				
 		$('.active_img').removeAttr('class');
 		curimgnum+=1;
 		$('#'+curimgnum).attr('class','active_img');
 		margin-=50;
 		$('.imgbox').stop().animate({'margin-left':margin+'%'},700);	
 		}else{
-			alert("마지막 사진입니다.");
-			curimgnum=listcnt-1;
+			alert_call(true,"처음으로 돌아갑니다.");
+			curimgnum=0;
+			margin=25;
+			$('.imgbox').stop().animate({'margin-left':margin+'%'},700);
 			$('.active_img').removeAttr('class');
 			$('#'+curimgnum).attr('class','active_img');
+			margin=0;
 		}	
-
+		
 	})
 	//슬라이드 이미지 클릭
 	$(document).on('click','.slider img',function(){
 		$('.active_img').removeAttr('class');
-		curimgnum=$(this).prop('id');
+		curimgnum=Number($(this).prop('id'));
 		$('#'+curimgnum).attr('class','active_img');
 		if(curimgnum==0){
-			curimgnum=0;
 			margin=25;
 			$('.imgbox').stop().animate({'margin-left':margin+'%'},700);
 			margin=0;

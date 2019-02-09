@@ -6,7 +6,7 @@
 <input type="checkbox" class="input_lock"><label for="lock">비밀글</label>
 <input type="hidden" class="input_writer" name="writer" >
 <input type="text" name="title" class="input_title" placeholder=" 제목 최대 30자" maxlength="30">
-<textarea name="content" class="input_content"  placeholder="문의하실 내용 최대 1000자" rows="30" cols="45"></textarea>
+<textarea name="content" class="input_content"  placeholder="문의하실 내용 최대 1000자" rows="50" cols="20" wrap="hard" ></textarea>
 <input type="text" name="lock" class="input_hidden" style="display: none;" />
 <input multiple="multiple" id="img_file"type="file" name="file[]" accept="image/*">
 </form>

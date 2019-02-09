@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <html><head>
-<link href="${path}/css/header.css?ver=12" rel="stylesheet">
+<link href="${path}/css/header.css?ver=2" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Nunito:300i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i|Roboto:400,900i" rel="stylesheet">
@@ -12,7 +12,7 @@ var sessionid=null;
 $(window).scroll(function() {
     var st = $(this).scrollTop();
     $('.nav-body').animate({top:st},0);
-   
+   $('.alert').animate({top:st},0);
 });
 function alert_close(){
 		$('.alert').fadeOut('slow');

@@ -99,3 +99,40 @@ body{
 	font-weight:bold;
 	font-style:unset;
 }
+@media(max-width:450px){
+	.nav-body{
+	padding-top: 13%;
+	}
+	body{
+		background: url("/resources/bg/m_join_bg.jpg");
+	background-size:cover;
+	}
+	.join_div{
+	    width: 80%;
+   height: 45%;
+        margin: 3% auto;
+	}
+	.left{
+		height:100%;
+	}
+	.right{
+	height:100%;
+	}
+	.formBox{
+	    padding: 20 20;
+	}
+	.formBox input{
+	    margin-bottom: 10px;
+	    height: 30;
+	    font-size: 10;
+	}
+	.formBox a{
+		font-size:11px;
+	}
+	.formBox p{
+	    font-size: 11px;
+	}
+	.formBox button{
+	 margin-bottom: 10px;
+	}
+}

@@ -142,10 +142,10 @@ padding-top:3px;
 	padding-top: 5px;
 }
 .slide_left{
-	margin-left:1%;
+	margin-left:0%;
 }
 .slide_right{
-  margin-left: 80%;
+    margin-left: 63%;
 }
 .slidebox img{
 	display:inline-block;
@@ -314,4 +314,140 @@ text-align: center;
 	.roombox{
 	    height: 82%;
 	    }
+}
+
+@media(max-width:450px){
+	.btn_box{
+	margin-top:21.5%;
+	}
+	.btn_box button{
+	font-size: 13px;
+	padding:9px;
+	}
+	.slidebox{
+	    margin-top: 30%;
+	    width: 400;
+	    height: 25%;
+	}
+	.imgbox img{
+	    width: 200;
+	}
+	.slide_btn{
+	     margin-top: 48%;
+	    width:100%;
+	        height: 10%;
+	}
+	.slide_btn button{
+		font-size:15px;
+		margin-top:0;
+	}
+	.slide_right{
+	        margin-left: 71%;
+	}
+	.blur_box_left{
+	height: 25%;
+	    width: 100px;
+	}
+	.blur_box_right{
+	    margin-left: 300;
+    width: 100;
+    height: 25%;
+	}
+	.slider{
+	    width: 400;
+	        height: 7%;
+	}
+	.slider img{
+	     width: 38px;
+    height: 40px;
+	}
+	.roombox{
+	    height: 60%;
+	    width: 40%;
+	    display: block;
+	    margin-top: 35%;
+	}
+	.roombox h1{
+		font-size:1em;
+	}
+	.roombox p{
+		font-size:0.8em;
+	}
+	.roombox input{
+	height: 24px;
+	}
+	.room_select{
+		height: 24px;
+	}
+	.room_select{
+		height:24px;
+		font-size: 13;
+	}
+	.room_dropbox div{
+		height:24px;
+		font-size: 13;
+	}
+	.room2{
+		margin-top:24;
+	}
+	.room3{
+		margin-top:48;
+	}
+	.person_select{
+	height: 24px;
+	font-size: 13;
+	}
+	.person_dropbox div{
+			height:24px;
+		font-size: 13;
+	}
+	.person2{
+		margin-top:24;
+	}
+	.person3{
+		margin-top:48;
+	}
+	.person4{
+	margin-top:72;
+	}
+	.ui-datepicker{
+	     font-size: 15px;
+    width: 200;
+	}
+	.carcur_btn{
+	font-size: 10;
+	    margin-left: 45%;
+    margin-top: 80%;
+    display:block;
+	}
+	.carcurlator{
+    display: block;
+    margin-left: 55%;
+     margin-top: 47%;
+        width: 42%;
+	}
+	.carcurlator h1{
+	    font-size: 2em;
+	
+	}
+	.carcurlator p{
+	    font-size: 0.7em;
+	}
+	.remaining_div{
+	    margin-left: 46%;
+	    width: 50%;
+	 margin-top: 18%;
+	       height: 85%;   
+	}
+	.remaining_table{
+	margin-top: 13%;
+	    font-size: 11px;
+	}
+	.remaining_btn{
+	    font-size: 12px;
+	}
+	.nav-body{
+		width:110%;
+		height:110%;
+	}
 }

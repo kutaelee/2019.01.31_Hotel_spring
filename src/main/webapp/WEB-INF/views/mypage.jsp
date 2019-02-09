@@ -2,7 +2,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/mypage.css?ver=3" rel="stylesheet">
+<link href="${path}/css/mypage.css?ver=4" rel="stylesheet">
 <script>
 var array;
 $(document).ready(function(){

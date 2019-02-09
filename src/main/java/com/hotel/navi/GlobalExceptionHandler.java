@@ -21,16 +21,17 @@ public class GlobalExceptionHandler extends RuntimeException {
   public void handlerException(HttpServletRequest request, HttpServletResponse response,
                   Exception e) throws Exception{
 	    StringWriter error = new StringWriter();
+	    
 	    // 1. 로깅
 	  e.printStackTrace(new PrintWriter(error));
 	    request.setAttribute("error", "서버에서 에러가 났습니다! 죄송합니다!");
 	    logger.error("REQUEST URI : {}", error);
- 
-    if(e.getClass().getName().equals("org.springframework.web.servlet.NoHandlerFoundException"));
-    {
-    	request.setAttribute("error", "요청하신 페이지를 찾을수 없습니다!");   	
-    
-    }
+	    if(e.getClass().getName().equals("org.springframework.web.servlet.NoHandlerFoundException"));
+	    {
+	    	request.setAttribute("error", "요청하신 페이지를 찾을수 없습니다!");   	
+	    
+	    }
+
     // 2. 에러페이지
     // 컨트롤러가 아니기 때문에 뷰 페이지의 full path를 작성해야 함
     request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);

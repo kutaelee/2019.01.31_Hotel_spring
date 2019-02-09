@@ -2,7 +2,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/booking.css?ver=1" rel="stylesheet">
+<link href="${path}/css/booking.css?ver=2" rel="stylesheet">
 <script>
 	$(document).ready(function(){
 		$('.booking_btn').click(function(){

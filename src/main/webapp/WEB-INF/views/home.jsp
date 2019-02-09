@@ -59,7 +59,7 @@
 
 	})
 </script>
-<link href="${path}/css/home.css?ver=0" rel="stylesheet">
+<link href="${path}/css/home.css?ver=4" rel="stylesheet">
 
 <title>Home</title>
 </head>
@@ -67,7 +67,6 @@
 	<div class="video_div">
 		<video  autoPlay muted loop id="back_video">
 			<source src="${path}/file/Hotel.mp4" type="video/mp4" />
-
 		</video>
 	</div>
 
@@ -88,7 +87,7 @@
 			<h1>항상 새롭고 맛있는 요리를 위해</h1>
 			<h1>끊임없이 매일 연구하고</h1>
 			<h1>고민합니다.</h1>
-			<p style="margin-right: 20px">. . . . . . . . .</p>
+			<p>. . . . . . . . .</p>
 		</div>
 		<img src="${path}/img/chefs-3701718_1920.jpg" class="main-img1">
 		<div class="img-text2">
@@ -96,12 +95,12 @@
 			<h1>저희 호텔은 생일인 고객님께</h1>
 			<h1>샴페인을 무료로 제공하고 있습니다.</h1>
 			<h1>사랑하는 사람과 파티를 즐겨보세요</h1>
-			<p style="margin-left: 20px">. . . . . . . . .</p>
+			<p>. . . . . . . . .</p>
 		</div>
 		<img src="${path }/img/champagne-2876137_1920.jpg" class="main-img2">
 		<div class="other_div">
 			<h1>about</h1>
-			<p style="margin-left: 20px">. . . . . . . . .</p>
+			<p>. . . . . . . . .</p>
 		</div>
 		<div class="other_menu">
 
