@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,8 +26,9 @@ public class RoomController {
 	RoomDAO rd;
 	@Autowired
 	RoomVO rv;
-	
+
 	@Autowired private ServletContext servletContext;
+
 
 	@RequestMapping(value = "/room", method = RequestMethod.GET)
 	public String room() {
@@ -84,7 +87,7 @@ public class RoomController {
 		return "ok";
 	}
 	//매일 정각 5초전에 실행 (객실 테이블 인덱스 관리)
-	@Scheduled(cron="55 59 23 * * ?")
+	@Scheduled(cron="0 0 0 * * ?")
 	@Transactional
 	public void roomchange(){
 		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");

@@ -25,6 +25,7 @@ public class BoardDAO {
 	@Inject
 	private SqlSession sqlssion;
 	
+	//글 수정에서 파일 추가
 	public void addfiles(List<MultipartFile> mf,String folder) throws IllegalStateException, IOException {
 		String path=servletContext.getRealPath("/WEB-INF/userfile/"+folder);
 		String filename;
@@ -41,6 +42,7 @@ public class BoardDAO {
 		}
 		
 	}
+	//글 작성 시 파일 업로드
 	public String uploadfiles(List<MultipartFile> mf,String id) throws IllegalStateException, IOException {
 	   
 		String path=servletContext.getRealPath("/WEB-INF/userfile/");
@@ -59,7 +61,7 @@ public class BoardDAO {
 	
 		//파일업로드
 		for(int i=0;i<mf.size();i++) {
-			filename=new String(mf.get(i).getOriginalFilename().getBytes("8859_1"),"utf-8");
+			filename=mf.get(i).getOriginalFilename();
 			filename=filename.replaceAll("#", "");
 			if(filename.length()==0)
 			{

@@ -128,8 +128,8 @@ public class BoardController {
 			bv=bd.selectread(bv);
 			bd.addfiles(mf, bv.getFilepath());
 		}
-		String title=new String(req.getParameter("title").getBytes("8859_1"),"utf-8");
-		String content=new String(req.getParameter("content").getBytes("8859_1"),"utf-8");
+		String title=req.getParameter("title");
+		String content=req.getParameter("content");
 		
 		
 		bv.setTitle(title);
