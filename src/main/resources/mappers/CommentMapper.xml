@@ -12,5 +12,13 @@
 <select id="commentlist" resultType="CommentVO">
 	select * from comment where parent_seq=#{parent_seq}
 </select>
-
+<update id="commentupdate">
+	update comment set content=#{content},reg_date=now(),modified="Y" where comment_seq=${comment_seq}
+</update>
+<select id="commentselect" resultType="CommentVO">
+	select * from comment where comment_seq=${comment_seq}
+</select>
+<delete id="commentdelete">
+	delete from comment where comment_seq=${comment_seq}
+</delete>
 </mapper>

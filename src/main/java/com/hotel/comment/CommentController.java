@@ -37,4 +37,27 @@ public class CommentController {
 			
 		return list;
 	}
+	@Transactional
+	@RequestMapping(value="/commentupdate",method=RequestMethod.POST)
+	public @ResponseBody CommentVO commentupdate(HttpServletRequest req) {
+		cv.setComment_seq(req.getParameter("seq"));
+		cv.setContent(req.getParameter("content"));
+		
+		cd.commentupdate(cv);
+		return cd.commentselect(cv);
+		
+	}
+	
+	@RequestMapping(value="/commentdelete",method=RequestMethod.POST)
+	public @ResponseBody List<CommentVO> commentdelete(HttpServletRequest req){
+		cv.setComment_seq(req.getParameter("seq"));
+		cv=cd.commentselect(cv);
+		if(cv.getWriter().equals(req.getParameter("id"))){
+			cd.commentdelete(cv);
+			return cd.commentlist(cv);
+		}else 
+			return null;
+		
+		
+	}
 }

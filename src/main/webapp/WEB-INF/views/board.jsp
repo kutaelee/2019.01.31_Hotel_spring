@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/board.css?ver=10" rel="stylesheet">
+<link href="${path}/css/board.css?ver=15" rel="stylesheet">
 </head>
 <script>
 
@@ -17,30 +17,45 @@ var cur_doc_path;
 function toggle_effect(id){
 	var i=0;
 	while(i<4){
-		$('#'+id).fadeOut('fast');
-		$('#'+id).fadeIn('fast');
+		$('.'+id).fadeOut('fast');
+		$('.'+id).fadeIn('fast');
 		i++;
 	}
 }
-function comment_list(list){
+//댓글 불러오는 함수
+function commentlist(list){
 	$('.comment_table').html("<tr class='comment_head'><td><a>Comments</a> <a style='font-weight:bold'>'"+Object.keys(list).length+"'</a></td></tr>");
 	var color="white";
 	for(var i=0;i<Object.keys(list).length;i++){
-		if(i%2==0)
-			color="white";
-		else
-			color="whitesmoke";
-		$('.comment_table').append("<tr class='comment_content'id='"+list[i].comment_seq+"'>");
-		$('#'+list[i].comment_seq).append("<td style='background:"+color+"'><a>작성자:"+list[i].writer+"</a><a style='margin-left:10'>날짜:"+list[i].reg_date+"</a><br/><p>"+list[i].content+"</p>");
-		$('#'+list[i].comment_seq).append("</tr>");
+
+		$('.comment_table').append("<tr class='comment_content'id='comment_tr"+list[i].comment_seq+"'>");
+		$('#comment_tr'+list[i].comment_seq).append("<td class='"+list[i].comment_seq+"'><a>작성자:"+list[i].writer+"</a><a style='margin-left:10'>날짜:"+list[i].reg_date+"</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+list[i].content+"</p>");
+		$('.'+list[i].comment_seq).append("</tr>");
+		if(list[i].modified=='Y'){
+			$('.'+list[i].comment_seq).children().eq(1).append('<a id="modified">수정됨</a>');
+		}
 	}
 	if(i!=0){
 		lastcomment=list[i-1].comment_seq;
-		lastcomment_top = $('#'+list[i-1].comment_seq).offset();
-	}
-
-	
+		lastcomment_top = $('.'+list[i-1].comment_seq).offset();
+	}	
 }
+//댓글 불러오는 함수
+function commentload(){
+	$.ajax({
+		url:'/commentlist',
+		type:'post',
+		data:{'seq':curseq},
+		success:function(result){
+			$('.board_content').css({'margin-top':'5%'});
+			$('.tag').css({'margin-top':'7%'});
+			$('.header').css({'position':'fixed'});	
+				commentlist(result);				
+		}
+		
+	})
+}
+
 //선택글 img 파일 가져오는 함수
 function fileread(path){
 	$.ajax({
@@ -56,7 +71,7 @@ function fileread(path){
 	})
 }
 /* 선택글 출력 함수*/
-function readform_call(){
+function readformcall(){
 	$.ajax({
 		url:'/boardreadform',
 		type:'post',
@@ -88,20 +103,8 @@ function readform_call(){
 						$('.nav-menu').css({'padding-top':'30%'});
 					}
 					$('.read_content').append(result.content);
-					$.ajax({
-						url:'/commentlist',
-						type:'post',
-						data:{'seq':curseq},
-						success:function(result){
-							$('.board_content').css({'margin-top':'5%'});
-							$('.tag').css({'margin-top':'7%'});
-							$('.header').css({'position':'fixed'});
-							
-						
-								comment_list(result);				
-						}
-						
-					})
+					
+					commentload();
 				},
 				error:function(e){
 					alert("글 읽기 중 문제가 발생했습니다!");
@@ -202,7 +205,7 @@ function tableload(list){
 		}
 		$('#'+list[i].seq).append('<td class="seq">'+list[i].seq+'</td>');
 		if(list[i].security=="Y"){
-			$('#'+list[i].seq).append('<td class="title">'+list[i].title+'<img src="${path}/img/padlock-16.jpg" style="margin-left:3"></td>');
+			$('#'+list[i].seq).append('<td class="title">'+list[i].title+'<img src="${path}/img/icon/padlock-16.jpg" style="margin-left:3"></td>');
 		}else{
 			$('#'+list[i].seq).append('<td class="title">'+list[i].title+'</td>');
 		}
@@ -216,20 +219,103 @@ function tableload(list){
 	$('.board_btn_div').fadeIn();
 }
 
+//댓글 수정취소 시 다시 로드
+function commentreload(lastdatseq,datbuffer){
+	if(lastdatseq>0){
+		$('.'+lastdatseq).html(datbuffer);
+	}
+	
+}
+function commentdelete(seq){
+	$.ajax({
+		url:'/commentdelete',
+		type:'post',
+		data:{'seq':seq,'id':sessionid},
+		success:function(result){
+			if(result){
+				commentlist(result);
+				alert_call(true,"댓글 삭제 완료!");
+			}else{
+				alert_call(false,"권한이 없습니다!");
+			}
+		
+		},
+		error:function(){
+			alert_call(false,'댓글 삭제 중 문제발생');
+		}
+	});
+}
 $(document).ready(function(){
 	/* 페이징,테이블 기준변수  */
 	var count=${count}; //총 게시글 갯수
 	var i=1; //게시글 행 1씩 증가
 	var j=10; //게시글 목록당 수 10씩 증가
-	var update_file_list = [];
-
+	var update_file_list = []; //글 수정 이전 파일리스트
+	var lastdatseq=0; //댓글 수정버튼 클릭한 댓글번호
+	var datbuffer=null; //수정취소 시 붙여넣을 내용 버퍼
+	var callback=false;
 	/*mobile*/
 	if($('body').width()<450){
 		$('body').attr('class','mobile');
 		$('.tag').removeAttr('class').attr('class','tag_mobile');
-		$('.nav-menu').css({'padding-top':'padding-top: 18%'});
-		
+		$('.nav-menu').css({'padding-top':'padding-top: 18%'});	
 	}
+	
+	//댓글 삭제
+	$(document).on('click','.dat_delete_icon',function(){
+
+		var delete_seq=$(this).parent().prop('class');
+		if(window.confirm("댓글을 삭제하시겠습니까?")){
+			commentdelete(delete_seq);
+		}
+		
+	});
+	//댓글 수정
+	$(document).on('click','.dat_update_submit',function(){
+		
+		var content=ConvertSystemSourcetoHtml($('.dat_content').val());
+
+		$.ajax({
+			url:'/commentupdate',
+			type:'post',
+			data:{'seq':lastdatseq,'content':content},
+			success:function(result){
+				if(result){
+					$('.'+lastdatseq).html("<a>작성자:"+result.writer+"</a><a style='margin-left:10'>날짜:"+result.reg_date+"</a><a id='modified'>수정됨</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+result.content+"</p>");	
+					lastdatseq=0;
+					datbuffer=null;
+				}else{
+					alert_call(false,"댓글 수정 후 통신에 문제가 생겼습니다.");
+					setTimeout(function(){
+						location.reload();
+					},1000);
+				}
+				
+			},
+			error:function(){
+				alert_call(false,"댓글 수정 중 문제가 발생했습니다.");
+				
+				setTimeout(function(){
+					location.reload();
+				},1000);
+		
+			}
+		});
+	});
+
+
+	//댓글 수정폼 출력
+	$(document).on('click','.dat_update_icon',function(){
+		commentreload(lastdatseq,datbuffer);
+		lastdatseq=$(this).parent().prop('class');
+		datbuffer=$(this).parent().html();
+		$(this).parent().html('<input type="text" class="dat_content"><button class="dat_update_submit">확인</button><button class="dat_update_cansle">취소</button>');
+		
+	});
+	//댓글 수정 취소
+	$(document).on('click','.dat_update_cansle',function(){
+		commentreload(lastdatseq,datbuffer);
+	})
 	//수정할 파일 리스트 푸쉬
 	$(document).on('click','.file_list button',function(){
 		$(this).parent().fadeOut('slow');
@@ -248,7 +334,7 @@ $(document).ready(function(){
 			}else{
 				$('.paging_span').append('<button class="pagenum">'+i+'</button>');
 			}
-			}
+		}
 		
 			if(i>j){
 				if(count>j*10)
@@ -367,7 +453,7 @@ $(document).ready(function(){
 		curpagenum=$('.pagenum_active').text();
 		$('.board_btn_div').hide();
 		curseq=$(this).children('.seq').text();
-		readform_call();
+		readformcall();
 	})
 	/*잠긴 글 작성자 확인 후 출력*/
 	$(document).on('click','.board_list_lock',function(){
@@ -381,7 +467,7 @@ $(document).ready(function(){
 					$('.tag').css({'margin-left':'30%'});
 					curpagenum=$('.pagenum_active').text();
 					$('.board_btn_div').hide();
-					readform_call();
+					readformcall();
 				}else{
 					alert_call(false,"비밀글은 작성자와 관리자만 읽을 수 있습니다.");
 				}
@@ -477,7 +563,7 @@ $(document).ready(function(){
 						success:function(result){
 						
 							$('.datgle').val("");
-							comment_list(result);
+							commentlist(result);
 							$('body').animate({scrollTop:lastcomment_top.top},1000);
 							toggle_effect(lastcomment);
 						}
@@ -518,13 +604,13 @@ $(document).ready(function(){
 						 traditional : true,
 						success:function(result){
 
-							if(result){readform_call()};
+							if(result){readformcall()};
 						},error:function(e){
 							alert(e);
 						}
 					})
 				}else{
-					readform_call();
+					readformcall();
 				}
 
 			},

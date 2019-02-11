@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=utf-8"%>
 <html><head>
-<link href="${path}/css/header.css?ver=2" rel="stylesheet">
+<link href="${path}/css/header.css?ver=4" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Nunito:300i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300i|Roboto:400,900i" rel="stylesheet">
@@ -31,7 +31,9 @@ function alert_call(result,text){
 	alert_close();
 	},1500);
 }
+
 	$(document).ready(function() {
+
 		$('.alert_close').click(function(){
 			alert_close();
 		})
@@ -93,13 +95,13 @@ function alert_call(result,text){
 		$(".nav-body").click(function(){
 			$('.change').attr('class', 'menu-toggle');
 			$('.nav-body').fadeOut('slow');
-		})
+		});
 	//메인 로고 클릭
 	$('.logo').click(function(){
 		window.location.href="/";
-	})
-	
-	})
+	});
+
+})
 </script>
 	<nav class="header">
 		<h1 class="logo" data-text="Gyutae's Hotel">Gyutae's Hotel</h1>
@@ -131,5 +133,5 @@ function alert_call(result,text){
 		<h1 class="alert_success">어떤것이 잘못되었습니다.</h1>
 		<h1 class="alert_fail">어떤것이 잘못되었습니다.</h1>
 	</div>
-	
+
 </html>

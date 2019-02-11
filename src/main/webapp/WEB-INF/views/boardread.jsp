@@ -1,5 +1,5 @@
 <%@page contentType="text/html; charset=utf-8"%>
-<span class="back_span"><img src="${path}/img/undo-48.gif"></span>
+<span class="back_span"><img src="${path}/img/icon/undo-48.gif"></span>
 <table class="read_table">
 
 	<tr>

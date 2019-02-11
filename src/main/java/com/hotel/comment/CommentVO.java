@@ -9,6 +9,21 @@ public class CommentVO {
 	private String writer;
 	private String reg_date;
 	private String content;
+	private String modified;
+	private String up;
+	
+	public String getModified() {
+		return modified;
+	}
+	public void setModified(String modified) {
+		this.modified = modified;
+	}
+	public String getUp() {
+		return up;
+	}
+	public void setUp(String up) {
+		this.up = up;
+	}
 	public String getContent() {
 		return content;
 	}

@@ -32,7 +32,7 @@ public class BoardController {
 	@Autowired
 	BoardDAO bd;
 	
-	@Transactional
+	
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String board(Model model) {
 		model.addAttribute("list",bd.selcetlist(0));
@@ -90,6 +90,7 @@ public class BoardController {
 
 		return bd.fileread(req.getParameter("path"));
 	}
+	@Transactional
 	@RequestMapping(value="/fileupdate", method = RequestMethod.POST)
 	public @ResponseBody boolean fileupdate(HttpServletRequest req){
 
