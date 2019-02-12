@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/board.css?ver=15" rel="stylesheet">
+<link href="${path}/css/board.css?ver=1" rel="stylesheet">
 </head>
 <script>
 

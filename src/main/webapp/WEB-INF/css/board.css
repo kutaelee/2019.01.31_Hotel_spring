@@ -200,6 +200,15 @@ th, td {
 	box-shadow: 1px 1px 7px grey;
 	transition: 0.5s;
 }
+.comment_content input{
+	width:80%;
+	height:100%;
+	margin-right:3%;
+}
+.comment_content button{
+	margin-left:1%;
+}
+
 /* board read */
 .back_btn {
 	margin-top: 1%;
@@ -459,6 +468,15 @@ cursor:pointer;
 @media ( max-width :1280px) {
 	.datgle_div {
 		height: 20%;
+	}
+	.dat_update_icon{
+		margin-left:15%;
+	}
+	.dat_delete_icon{
+		margin-left:16.2%;
+	}
+	.comment_content input{
+		width:60%;
 	}
 }
 

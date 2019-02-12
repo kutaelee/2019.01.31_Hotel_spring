@@ -144,8 +144,8 @@
 	position: absolute;
 	z-index: 10;
 	margin-top: 10%;
-	margin-left: 27%;
-	width: 45%;
+	margin-left: 23%;
+	width: 800px;
 	height: 40%;
 }
 
@@ -161,7 +161,7 @@
 }
 
 .slide_left {
-	margin-left: 0%;
+	margin-left: 13%;
 }
 
 .slide_right {
@@ -206,6 +206,7 @@
 	position: absolute;
 	margin-top: 7.5%;
 	margin-left: 22%;
+	width: 50%;
 }
 
 .btn_box button {
@@ -216,7 +217,7 @@
 	border-radius: 0;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	background: #2b3d59;
+	background: #2c4162;
 }
 
 .room_submit {
@@ -230,32 +231,34 @@
 	border: 1px solid #F54F29;
 	transition: 0.3s;
 }
-.modal{
+
+.modal {
 	text-align: center;
-    width: 100%;
-    position: absolute;
-    display: none;
-    height: 100%;
-    background: rgba(0,0,0,.9);
-    z-index: 1000;
+	width: 100%;
+	position: absolute;
+	display: none;
+	height: 100%;
+	background: rgba(0, 0, 0, .9);
+	z-index: 1000;
 }
+
 .carcurlator {
-    width: 30vw;
-    height: 40vh;
-    margin-top: 10%;
-    background: white;
-    margin-left: 35%;
-    box-shadow: 1px 1px 5px grey;
-    border-radius: 10px;
+	width: 30vw;
+	height: 40vh;
+	margin-top: 10%;
+	background: white;
+	margin-left: 35%;
+	box-shadow: 1px 1px 5px grey;
+	border-radius: 10px;
 }
-.carcurlator button{
-    margin-top: 10%;
+
+.carcurlator button {
+	margin-top: 10%;
 }
+
 .carcurlator h1 {
 	margin-bottom: 30;
 }
-
-
 
 .checkout_room {
 	margin-left: 22%;
@@ -321,7 +324,7 @@
 		margin-left: 1%;
 	}
 	.slidebox {
-	margin-top:10.8%;
+		margin-top: 10.8%;
 		margin-left: 1%;
 		height: 50%;
 	}
@@ -340,14 +343,17 @@
 	.checkout_room {
 		margin-left: 1%;
 	}
+
 	.slide_btn {
-		margin-left: 5%;
-		width: 60%;
+		margin-left: 0%;
+		width: 800px;
 	}
-	.slide_btn button {
-		margin-top: 17%;
+	.slide_left {
+		margin-left: 6%;
+		margin-top: 24%;
 	}
 	.slide_right {
+		margin-top:-5%;
 		margin-left: 80%;
 	}
 	.remaining_div {

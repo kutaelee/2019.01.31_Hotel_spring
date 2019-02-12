@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/room.css?ver=11" rel="stylesheet"> 
+<link href="${path}/css/room.css?ver=0" rel="stylesheet"> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
@@ -114,7 +114,8 @@ $(document).ready(function(){
 	function roomsubmit(){
 		if(sessionid==null){
 			alert_call(false,"로그인 후 이용해주세요!");
-			$('modal').fadeOut('slow');
+			$('.modal').fadeOut('slow');
+
 		}else{
 			var person=0;
 			person=person_count();
@@ -342,6 +343,7 @@ $(document).ready(function(){
 	})
 	$('.no').click(function(){
 		$('.modal').fadeOut('slow');
+
 	})
 
 	//남은객실 확인
@@ -409,10 +411,7 @@ $(document).ready(function(){
 			
 
 		})
-		
-		
-		
-	
+
 	
 });
 
@@ -431,6 +430,7 @@ $(document).ready(function(){
 <button class="ok">결제</button>
 <button class="no">취소</button>
 </div>
+
 </div>
 <div class="remaining_div">
 <h3>X</h3>  
