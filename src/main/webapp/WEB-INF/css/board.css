@@ -345,6 +345,7 @@ th, td {
 .comment_table a {
 	font-family: 'NanumSquareRound';
 	color: grey;
+
 }
 
 .comment_table p {
@@ -361,7 +362,7 @@ th, td {
 }
 .dat_update_icon{
 	position: absolute;
-	margin-left:22%;	
+	margin-left:36%;	
 	cursor:pointer;
 }
 .dat_update_icon:hover{
@@ -371,7 +372,7 @@ th, td {
 }
 .dat_delete_icon{
 position: absolute;
-	margin-left:23.2%;	
+	margin-left:37.2%;	
 cursor:pointer;
 }
 .dat_delete_icon:hover{
@@ -379,9 +380,17 @@ cursor:pointer;
 	transform: rotate(-720deg);
 	transition:0.5s;
 }
-#modified{
+.comment_writer{
 	position:absolute;
-	magin-left:1%;
+}
+.comment_modified{
+	position:absolute;
+	width:25%;
+	margin-left:5%;
+}
+.comment_reg_date{
+	position:absolute;
+	margin-left:8%;
 }
 /* board write */
 .board_write_div {

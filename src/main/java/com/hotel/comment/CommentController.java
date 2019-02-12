@@ -41,11 +41,14 @@ public class CommentController {
 	@RequestMapping(value="/commentupdate",method=RequestMethod.POST)
 	public @ResponseBody CommentVO commentupdate(HttpServletRequest req) {
 		cv.setComment_seq(req.getParameter("seq"));
-		cv.setContent(req.getParameter("content"));
-		
-		cd.commentupdate(cv);
-		return cd.commentselect(cv);
-		
+		cv=cd.commentselect(cv);
+		if(cv.getWriter().equals(req.getParameter("id"))){
+			cv.setContent(req.getParameter("content"));	
+			cd.commentupdate(cv);
+			return cd.commentselect(cv);
+		}
+	
+		return null;
 	}
 	
 	@RequestMapping(value="/commentdelete",method=RequestMethod.POST)

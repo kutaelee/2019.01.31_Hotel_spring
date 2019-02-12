@@ -29,10 +29,10 @@ function commentlist(list){
 	for(var i=0;i<Object.keys(list).length;i++){
 
 		$('.comment_table').append("<tr class='comment_content'id='comment_tr"+list[i].comment_seq+"'>");
-		$('#comment_tr'+list[i].comment_seq).append("<td class='"+list[i].comment_seq+"'><a>작성자:"+list[i].writer+"</a><a style='margin-left:10'>날짜:"+list[i].reg_date+"</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+list[i].content+"</p>");
+		$('#comment_tr'+list[i].comment_seq).append("<td class='"+list[i].comment_seq+"'><a class='comment_writer'>작성자:"+list[i].writer+"</a><a class='comment_reg_date'>날짜:"+list[i].reg_date+"</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+list[i].content+"</p>");
 		$('.'+list[i].comment_seq).append("</tr>");
 		if(list[i].modified=='Y'){
-			$('.'+list[i].comment_seq).children().eq(1).append('<a id="modified">수정됨</a>');
+			$('.'+list[i].comment_seq).children().eq(1).append('<a class="comment_modified">수정됨</a>');
 		}
 	}
 	if(i!=0){
@@ -278,18 +278,16 @@ $(document).ready(function(){
 		$.ajax({
 			url:'/commentupdate',
 			type:'post',
-			data:{'seq':lastdatseq,'content':content},
+			data:{'seq':lastdatseq,'content':content,'id':sessionid},
 			success:function(result){
 				if(result){
-					$('.'+lastdatseq).html("<a>작성자:"+result.writer+"</a><a style='margin-left:10'>날짜:"+result.reg_date+"</a><a id='modified'>수정됨</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+result.content+"</p>");	
+					$('.'+lastdatseq).html("<a class='comment_writer'>작성자:"+result.writer+"</a><a class='comment_reg_date'>날짜:"+result.reg_date+"</a> <img class='dat_update_icon' src='${path}/img/icon/edit-16.jpg'>  <img class='dat_delete_icon'src='${path}/img/icon/delete-16.jpg'> <br/><p>"+result.content+"</p>");	
+					$('.'+lastdatseq+' .comment_reg_date').append("<a class='comment_modified'>수정됨</a> ");
 					lastdatseq=0;
 					datbuffer=null;
 				}else{
-					alert_call(false,"댓글 수정 후 통신에 문제가 생겼습니다.");
-					setTimeout(function(){
-						location.reload();
-					},1000);
-				}
+					alert_call(false,"권한이 없습니다.");
+				} 
 				
 			},
 			error:function(){
