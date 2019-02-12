@@ -120,12 +120,12 @@ function readformcall(){
 /* 글쓰기폼 출력 함수 */
 function writeform(update){
 	$('.board_btn_div').hide();
-	$('.file_list').hide();
 	$.ajax({
 		url:'/boardwriteform',
 		type:'post',
 		success:function(result){
 			$('.board_content').html(result);
+			$('.file_list').hide();
 			if(update){
 	
 				$('.board_insert_btn').attr('class','board_update_btn');
@@ -478,11 +478,14 @@ $(document).ready(function(){
 	
 	/* 글쓰기 페이지 출력 */
 	$('.board_write_btn').click(function(){
+	
 		if(sessionid!=null){
 			if($('body').prop('class')=='mobile'){
 				$('.board_info').hide();
 				$('.board_info2').hide();
+		
 			}
+			
 			writeform(false);
 		}else{
 			alert_call(false,"로그인 후 이용해주세요");

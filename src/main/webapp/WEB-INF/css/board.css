@@ -605,4 +605,10 @@ cursor:pointer;
 	.read_title {
 		font-size: 4.5vw;
 	}
+		.dat_update_icon{
+		margin-left:9%;
+	}
+	.dat_delete_icon{
+		margin-left:14.2%;
+	}
 }

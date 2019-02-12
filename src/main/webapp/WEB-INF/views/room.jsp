@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/room.css?ver=0" rel="stylesheet"> 
+<link href="${path}/css/room.css?ver=20" rel="stylesheet"> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  

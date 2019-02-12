@@ -13,6 +13,7 @@ $(window).scroll(function() {
     var st = $(this).scrollTop();
     $('.nav-body').animate({top:st},0);
    $('.alert').animate({top:st},0);
+   $('.modal').animate({top:st},0);
 });
 function alert_close(){
 		$('.alert').fadeOut('slow');
