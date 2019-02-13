@@ -6,6 +6,8 @@
 
 > 2019-01-31 ~ 2019-02-09
 
+> [데모사이트](http://ec2-13-209-68-44.ap-northeast-2.compute.amazonaws.com:8080/)
+
 ## 개발환경
 * spring
 * java
@@ -51,5 +53,5 @@
   * 하지만 task 특성 상 매일 정각에 작동하므로 하루가 지나고 알게 되었습니다.
   * war 파일 배포후 java 파일을 수정해도 적용이 되지않는 것을 늦게 알아차려서 문제해결에 시간이 약간 걸렸습니다.
   
-[데모사이트](http://ec2-13-209-68-44.ap-northeast-2.compute.amazonaws.com:8080/)
+
 
