@@ -87,7 +87,7 @@ public class RoomController {
 		return "ok";
 	}
 	//매일 정각 1초전에 실행 (객실 테이블 인덱스 관리)
-	@Scheduled(cron="59 59 12 * * ?")
+	@Scheduled(cron="59 59 23 * * ?")
 	@Transactional
 	public void roomchange(){
 		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
