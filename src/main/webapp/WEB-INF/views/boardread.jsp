@@ -16,7 +16,7 @@
 <div class="datgle_div">
 <a style="color:salmon;margin-left:3%"> ★</a><a>댓글</a><br/>
 
-<textarea class="datgle"></textarea><button class="datgle_btn">등록</button>
+<textarea class="datgle" rows="2" cols="20" wrap="hard" ></textarea><button class="datgle_btn">등록</button>
 </div>
 <div class="comment_div">
 	<table class="comment_table">

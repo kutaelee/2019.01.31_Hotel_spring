@@ -4,7 +4,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/board.css?ver=1" rel="stylesheet">
+<link href="${path}/css/board.css?ver=2" rel="stylesheet">
 </head>
 <script>
 
@@ -274,7 +274,6 @@ $(document).ready(function(){
 	$(document).on('click','.dat_update_submit',function(){
 		
 		var content=ConvertSystemSourcetoHtml($('.dat_content').val());
-
 		$.ajax({
 			url:'/commentupdate',
 			type:'post',
@@ -554,9 +553,30 @@ $(document).ready(function(){
 		})
 		/*댓글 등록*/
 		$(document).on('click','.datgle_btn',function(){
+			
 			if(sessionid!=null){
 				var content=ConvertSystemSourcetoHtml($('.datgle').val());
-				if(content.trim()!=''&&content!=null){
+				var temp="";
+				
+				if($('body').prop('class')=='mobile'){
+					if(content.length>18){
+						for(var i=0;i<content.length-17;i+=17){	
+							temp+=content.substring(i,i+17)+'<br>';		
+						}
+						content=temp+content.substring(i,content.length);
+					}
+				}else{
+					if(content.length>40){
+						for(var i=0;i<content.length-39;i+=39){	
+							temp+=content.substring(i,i+39)+'<br>';		
+						}
+						content=temp+content.substring(i,content.length);
+					}
+				}
+				
+			
+				
+				if(content.trim()!=''&&content!=null||content.length>500){
 					$.ajax({
 						url:'/commentinsert',
 						type:'post',
@@ -570,7 +590,7 @@ $(document).ready(function(){
 						}
 					})
 				}else{
-					alert_call(false,"내용을 입력해주세요!");
+					alert_call(false,"댓글 내용에 문제가있습니다!");
 				}
 			}else{
 				alert_call(false,"로그인 후 이용해주세요!");
@@ -583,7 +603,7 @@ $(document).ready(function(){
 		}else{
 		var content=$('.input_content').val();
 		var title=$('.input_title').val();
-		$('.input_title').val(ConvertSystemSourcetoHtml(title));
+		$('.input_title').val(ConvertSystemSourcetoHtml(title));		
 		$('.input_content').val(ConvertSystemSourcetoHtml(content));
 
 		var form = new FormData(document.getElementById('board_insert_form'));
@@ -629,8 +649,8 @@ $(document).ready(function(){
 		 }
 	})
 	$(document).on('keyup','.datgle',function(){
-	  if($(this).val().length > 100) {
-		   $(this).val($(this).val().substring(0, 100));
+	  if($(this).val().length > 150) {
+		   $(this).val($(this).val().substring(0, 150));
 		 }
 	})
 	/* 글 삭제*/

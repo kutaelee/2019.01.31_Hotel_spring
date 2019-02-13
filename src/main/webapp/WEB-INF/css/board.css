@@ -615,9 +615,12 @@ cursor:pointer;
 		font-size: 4.5vw;
 	}
 		.dat_update_icon{
-		margin-left:9%;
+		margin-left:73%;
 	}
 	.dat_delete_icon{
-		margin-left:14.2%;
+		margin-left:78%;
+	}
+	.comment_reg_date{
+		margin-left:26%;
 	}
 }
