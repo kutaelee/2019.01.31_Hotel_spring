@@ -47,11 +47,10 @@ public class MemberController {
 	public @ResponseBody String  memberlogin(HttpServletRequest req){
 		String id=req.getParameter("id");
 		String pw=req.getParameter("password")+"Gyutae_hotel";	
-
-		MemberVO mv=new MemberVO();
+		
 		mv.setId(id);
 		mv=md.memberlogin(mv);
-		if(!ObjectUtils.isEmpty(mv)) {
+		if(!ObjectUtils.isEmpty(mv)&&!id.isEmpty()) {
 			if(passwordEncoder.matches(pw, mv.getPassword())) {
 				HttpSession session=req.getSession();
 				session.setAttribute("userid",id);		
@@ -74,16 +73,17 @@ public class MemberController {
 	}
 	@RequestMapping(value="/join",method=RequestMethod.GET)
 	public String join() {
+
 		return "join";
 	}
 	
 	@RequestMapping(value="/idcheck",method=RequestMethod.POST)
 	public @ResponseBody boolean idcheck(HttpServletRequest req){
 		String id=req.getParameter("id");
-	
 		if(md.idcheck(id)!=null) {
 			return false;
 		}else {
+	
 			return true;
 		}
 		
@@ -93,28 +93,31 @@ public class MemberController {
 	public @ResponseBody boolean memberjoin(HttpServletRequest req){
 		String id=req.getParameter("id");
 		String email=req.getParameter("email");
-		MemberVO mv=new MemberVO();
+
+		if(!id.isEmpty()&&!email.isEmpty()) {
+			if(!ObjectUtils.isEmpty(md.idcheck(id))&&!ObjectUtils.isEmpty(md.emailcheck(email))) {
+				return false;
+				
+			}else {
+				String pw=req.getParameter("password")+"Gyutae_hotel";	
+				String encodepw = passwordEncoder.encode(pw);
 	
-		if(!ObjectUtils.isEmpty(md.idcheck(id))&&!ObjectUtils.isEmpty(md.emailcheck(email))) {
-			return false;
-			
-		}else {
-			String pw=req.getParameter("password")+"Gyutae_hotel";	
-			String encodepw = passwordEncoder.encode(pw);
-			mv.setId(id);
-			mv.setEmail(email);
-			mv.setPassword(encodepw);
-			md.memberjoin(mv);
-			HttpSession session=req.getSession(false);
-			session.setAttribute("userid", id);
-			return true;
+				mv.setId(id);
+				mv.setEmail(email);
+				mv.setPassword(encodepw);
+				md.memberjoin(mv);
+				
+				HttpSession session=req.getSession(false);
+				session.setAttribute("userid", id);
+				return true;
+			}
 		}
+		return false;
 	}
 	@RequestMapping(value="/emailcheck",method=RequestMethod.POST)
 	public @ResponseBody boolean emailcheck(HttpServletRequest req){
 		String email=req.getParameter("email");
-		mv=md.emailcheck(email);
-		if(ObjectUtils.isEmpty(mv)) {
+		if(ObjectUtils.isEmpty(md.emailcheck(email))) {
 			return true;//사용해도좋음
 		}else {
 			return false;//이미있는이메일
