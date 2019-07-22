@@ -32,7 +32,6 @@ public class BoardController {
 	@Autowired
 	BoardDAO bd;
 	
-	
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String board(Model model) {
 		model.addAttribute("list",bd.selcetlist(0));
@@ -65,7 +64,7 @@ public class BoardController {
 		if(mf.get(0).getSize()>0) {	
 			bv.setFilepath(bd.uploadfiles(mf,id));
 		}else {
-			bv.setFilepath(null);
+			bv.setFilepath(bd.createFolder(id));
 		}
 
 		String title=req.getParameter("title");

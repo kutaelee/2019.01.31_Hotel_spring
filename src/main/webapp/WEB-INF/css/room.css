@@ -54,7 +54,9 @@
 .room_dropbox div:hover {
 	background: #C6C6C6;
 }
-
+#room1{
+	background:salmon;
+}
 .room2 {
 	margin-top: 30;
 }

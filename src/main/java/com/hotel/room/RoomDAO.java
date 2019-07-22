@@ -24,8 +24,8 @@ public class RoomDAO {
 	public RoomVO stayroomcheck(RoomVO rv) {
 		return sqlssion.selectOne(namespace+".stayroomcheck",rv);
 	}
-	public RoomVO roomupdate(RoomVO rv) {
-		return sqlssion.selectOne(namespace+".roomupdate",rv);
+	public void roomupdate(RoomVO rv) {
+		 sqlssion.update(namespace+".roomupdate",rv);
 	}
 	public List<RoomVO> remainingrooms(String room_type){
 		return sqlssion.selectList(namespace+".remainingrooms",room_type);

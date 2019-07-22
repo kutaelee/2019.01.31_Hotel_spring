@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="header.jsp"%>
-<link href="${path}/css/room.css?ver=20" rel="stylesheet"> 
+<link href="${path}/css/room.css?ver=21" rel="stylesheet"> 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
@@ -27,7 +27,6 @@ $(document).ready(function(){
 	var curimgnum=0;
 	var slidesw=true;
 	var pay;
-	
 
 	function checkout_room(room){
 
@@ -57,18 +56,17 @@ $(document).ready(function(){
 
 	//계산기 기능
 	function carcur(){
-		
-
 	var room=$('.room_select').text();
 	var days=staydate();
-	console.log(days);
 	if(days==0)
 		days=1;
 
 	var person=0;
 	person=person_count();
+	console.log(person);
+	if(person>0){
 		if(room=='스텐다드'){ 
-
+		
 		$('.stay_person').text("숙박인원 : "+person+"인");
 		$('.stay_room').text("스텐다드 룸 :"+Math.ceil(person/2)+"개");
 		$('.stay_date').text("머무는기간 : "+days+"일");
@@ -78,24 +76,27 @@ $(document).ready(function(){
 		}else if(room=='슈페리어'){
 			if(person<4)
 				person=4;
-			$('.stay_person').text(person+"명이 이용하신다면");
-			$('.stay_room').text("슈페리어 (최대 4인 숙박)="+Math.ceil(person/4)+"개 가 필요하고");
-			$('.stay_date').text(days+"일 동안 머무신다면");
-			$('.stay_cal').text('방'+Math.ceil(person/4)+'개 x 19만원'+' x '+days+'일');
+			$('.stay_person').text("숙박인원 : "+person+"인");
+			$('.stay_room').text("스텐다드 룸 :"+Math.ceil(person/2)+"개");
+			$('.stay_date').text("머무는기간 : "+days+"일");
 			$('.stay_pay').text("가격은 총 "+Math.ceil(person/4)*19*days+"만원 입니다.");
+			$('.stay_pay').append("<br/><h4>이대로 결제하시겠어요?</h4>");
 			
 		}else{
 			if(person<8)
 				person=6;
 		
-			$('.stay_person').text(person+"명이 이용하신다면");
-			$('.stay_room').text("디럭스 (최대 8인 숙박)="+Math.ceil(person/8)+"개 가 필요하고");
-			$('.stay_date').text(days+"일 동안 머무신다면");
-			$('.stay_cal').text('방'+Math.ceil(person/8)+'개 x 36만원'+' x '+days+'일');
+			$('.stay_person').text("숙박인원 : "+person+"인");
+			$('.stay_room').text("스텐다드 룸 :"+Math.ceil(person/2)+"개");
+			$('.stay_date').text("머무는기간 : "+days+"일");
 			$('.stay_pay').text("가격은 총 "+Math.ceil(person/8)*36*days+"만원 입니다.");
+			$('.stay_pay').append("<br/><h4>이대로 결제하시겠어요?</h4>");
 		
 		}
-
+		
+		}else{
+			alert("숙박인원이 1인 이상이어야 합니다");
+		}
 	}
 	//사람 수 체크 함수
 	function person_count(){
@@ -401,7 +402,8 @@ $(document).ready(function(){
 	roomselect("room1");
 	//룸 선택 버튼 클릭 함수
 		$('.btn_box button').click(function(){
-			
+			$('.btn_box button').css({'background':'#2c4162'});
+			$(this).css({'background':'salmon'});
 			margin=0;
 			$('.imgbox').stop().animate({'margin-left':margin+'%'},500);
 			cur_room=$(this).prop('id');

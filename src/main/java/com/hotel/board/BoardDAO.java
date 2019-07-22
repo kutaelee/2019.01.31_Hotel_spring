@@ -31,7 +31,8 @@ public class BoardDAO {
 		String filename;
 		
 		for(int i=0;i<mf.size();i++) {
-			filename=new String(mf.get(i).getOriginalFilename().getBytes("8859_1"),"utf-8");
+			//filename=new String(mf.get(i).getOriginalFilename().getBytes("8859_1"),"utf-8");
+			filename=mf.get(i).getOriginalFilename();
 			filename=filename.replaceAll("#", "");
 			if(filename.length()==0)
 			{
@@ -42,23 +43,26 @@ public class BoardDAO {
 		}
 		
 	}
-	//글 작성 시 파일 업로드
-	public String uploadfiles(List<MultipartFile> mf,String id) throws IllegalStateException, IOException {
-	   
+	public String createFolder(String id) {
 		String path=servletContext.getRealPath("/WEB-INF/userfile/");
 		Date date=new Date();
-
-		String filename;
+		
 		String path2=id+date.getTime();
 		//폴더생성
 		File parent=new File(path);
 		File desti = new File(parent,path2);
 		 if(!desti.exists()){
 			desti.mkdir();
-		
 		 }
-		 path=path+path2;
-	
+		 return path2;
+	}
+	//글 작성 시 파일 업로드
+	public String uploadfiles(List<MultipartFile> mf,String id) throws IllegalStateException, IOException {
+		 String path=servletContext.getRealPath("/WEB-INF/userfile/");
+		 String path2=createFolder(id);
+		 String filename;	
+		 
+		 path=path+path2;	
 		//파일업로드
 		for(int i=0;i<mf.size();i++) {
 			filename=mf.get(i).getOriginalFilename();

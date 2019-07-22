@@ -29,10 +29,10 @@ public class roomtest {
 		RequestBuilder req = MockMvcRequestBuilders.post("/room1");
 		mock.perform(req);
 	}
-	@Test
+/*	@Test
 	public void roomcheck() throws Exception{
 		mock=MockMvcBuilders.webAppContextSetup(wac).build();
 		RequestBuilder req = MockMvcRequestBuilders.post("/roomcheck");
 		mock.perform(req);
-	}
+	}*/
 }

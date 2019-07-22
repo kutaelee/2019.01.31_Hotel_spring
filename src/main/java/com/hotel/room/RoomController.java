@@ -86,8 +86,8 @@ public class RoomController {
 
 		return "ok";
 	}
-	//매일 정각 1초전에 실행 (객실 테이블 인덱스 관리)
-	@Scheduled(cron="59 59 23 * * ?")
+	//매일 정각에 실행 (객실 테이블 인덱스 관리)
+	@Scheduled(cron="0 0 0 * * ?")
 	@Transactional
 	public void roomchange(){
 		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
@@ -130,25 +130,25 @@ public class RoomController {
 	@RequestMapping(value = "/room1", method = RequestMethod.POST)
 	public void room1() {
 
-//		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
-//	       Calendar calendar = Calendar.getInstance(tz);
-//	       calendar.set(2019, Calendar.FEBRUARY , 7);
-//	       String pattern = "yyyy-MM-dd";
-//	       SimpleDateFormat format = new SimpleDateFormat(pattern);
-//	       format.setTimeZone(tz);
-//	       System.out.println(format.format(calendar.getTime()));
-//	       
-//	   
-//		for(int i=1; i<4;i++) {
-//			rv.setRoom_type("room"+i);
-//		    for(int j=0;j<31;j++) {
-//		    	   calendar.add(Calendar.DATE, j);
-//		    	   rv.setRoom_date(format.format(calendar.getTime()));
-//		    	   System.out.println(format.format(calendar.getTime()));
-//		    	   rd.roomset(rv);
-//		    	   calendar.set(2019, Calendar.FEBRUARY , 7);
-//		       }
-//		}
+		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+	       Calendar calendar = Calendar.getInstance(tz);
+	       calendar.set(2019, Calendar.JULY , 23);
+	       String pattern = "yyyy-MM-dd";
+	       SimpleDateFormat format = new SimpleDateFormat(pattern);
+	       format.setTimeZone(tz);
+	       System.out.println(format.format(calendar.getTime()));
+	       
+	   
+		for(int i=1; i<4;i++) {
+			rv.setRoom_type("room"+i);
+		    for(int j=0;j<31;j++) {
+		    	   calendar.add(Calendar.DATE, j);
+		    	   rv.setRoom_date(format.format(calendar.getTime()));
+		    	   System.out.println(format.format(calendar.getTime()));
+		    	   rd.roomset(rv);
+		    	   calendar.set(2019, Calendar.JULY , 23);
+		       }
+		}
 		
 	}
 }
