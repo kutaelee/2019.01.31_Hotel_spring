@@ -22,6 +22,21 @@
         <property name="url" value="${db.url}"/>
         <property name="username" value="${db.username}"/>
         <property name="password" value="${db.password}"/>
+        <property name="initialSize" value="100" />
+		<property name="maxActive" value="150" />
+		<property name="maxWait" value="10000" />
+		<property name="maxIdle" value="30" />
+		<property name="minIdle" value="20" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testOnReturn" value="true" />
+		<property name="validationQuery" value="select 1 from dual" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="130000" />
+		<property name="minEvictableIdleTimeMillis" value="120000" />
+		<property name="numTestsPerEvictionRun" value="20" />
+		<property name="removeAbandonedTimeout" value="30" />
+		<property name="removeAbandoned" value="true" />
+		<property name="logAbandoned" value="false" />
     </bean>
 
  

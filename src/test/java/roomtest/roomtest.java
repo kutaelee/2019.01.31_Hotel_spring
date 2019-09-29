@@ -26,7 +26,7 @@ public class roomtest {
 	@Test
 	public void test() throws Exception {
 		mock=MockMvcBuilders.webAppContextSetup(wac).build();
-		RequestBuilder req = MockMvcRequestBuilders.post("/room1");
+		RequestBuilder req = MockMvcRequestBuilders.post("/setrooms");
 		mock.perform(req);
 	}
 /*	@Test

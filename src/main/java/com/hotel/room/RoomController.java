@@ -11,6 +11,7 @@ import java.util.TimeZone;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,9 @@ public class RoomController {
 	RoomDAO rd;
 	@Autowired
 	RoomVO rv;
-
-	@Autowired private ServletContext servletContext;
+	static Logger logger=Logger.getLogger("RoomController");
+	@Autowired 
+	private ServletContext servletContext;
 
 
 	@RequestMapping(value = "/room", method = RequestMethod.GET)
@@ -127,28 +129,29 @@ public class RoomController {
 	
 	//룸 테이블 세팅 클래스 junit으로 세팅
 	@Transactional
-	@RequestMapping(value = "/room1", method = RequestMethod.POST)
+	@RequestMapping(value = "/setrooms", method = RequestMethod.POST)
 	public void room1() {
 
-//		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
-//	       Calendar calendar = Calendar.getInstance(tz);
-//	       calendar.set(2019, Calendar.JULY , 23);
-//	       String pattern = "yyyy-MM-dd";
-//	       SimpleDateFormat format = new SimpleDateFormat(pattern);
-//	       format.setTimeZone(tz);
-//	       System.out.println(format.format(calendar.getTime()));
-//	       
-//	   
-//		for(int i=1; i<4;i++) {
-//			rv.setRoom_type("room"+i);
-//		    for(int j=0;j<31;j++) {
-//		    	   calendar.add(Calendar.DATE, j);
-//		    	   rv.setRoom_date(format.format(calendar.getTime()));
-//		    	   System.out.println(format.format(calendar.getTime()));
-//		    	   rd.roomset(rv);
-//		    	   calendar.set(2019, Calendar.JULY , 2);
-//		       }
-//		}
+		  TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+	       Calendar calendar = Calendar.getInstance(tz);
+	       calendar.set(2019, Calendar.OCTOBER, 1);
+	       String pattern = "yyyy-MM-dd";
+	       SimpleDateFormat format = new SimpleDateFormat(pattern);
+	       format.setTimeZone(tz);
+	       logger.info(format.format(calendar.getTime()));
+	       
+	   
+		for(int i=1; i<4;i++) {
+			rv.setRoom_type("room"+i);
+		    for(int j=0;j<31;j++) {
+		    	   calendar.add(Calendar.DATE, j);
+		    	   rv.setRoom_date(format.format(calendar.getTime()));
+
+		    	   logger.info(format.format(calendar.getTime()));
+		    	   rd.roomset(rv);
+		    	   calendar.set(2019, Calendar.OCTOBER , 1);
+		       }
+		}
 		
 	}
 }
